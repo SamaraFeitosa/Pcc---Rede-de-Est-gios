@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Aqui é o Login</h1>
+
+    <form action="/accounts/login/" method="post">
+
+        {% if request.GET %}
+        <i class="info">
+            {{ request.GET.msg }}
+        </i>
+        {% endif %}
+
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <input type="submit" value="Entrar">
+    </form>
+
+    <a href="/empresa/criar/"> <input type="button" value="Cadastre sua Empresa"> </a>
+
+</body>
+</html>

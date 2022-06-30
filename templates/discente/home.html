@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <title>Rede de Estágios</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href={% static "animate/animate.min.css" %} rel="stylesheet">
+    <link href={% static "owlcarousel/assets/owl.carousel.min.css" %} rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href={% static "css/bootstrap.min.css" %} rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href={% static "css/style.css" %} rel="stylesheet">
+</head>
+
+<body>
+ 
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>Rede de Estágios</h2>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="/index/" class="nav-item nav-link active">Home</a>
+                <a href="/discente/perfil/{{user.id}}" class="nav-item nav-link active"> Perfil</a>
+</ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+<h1> Faça donwload dos arquivos!</h2>
+    <p><a href="https://www.ifbaiano.edu.br/unidades/guanambi/files/2013/07/Regulamento-de-Estágio.pdf" target="_blank">Regulamento de Estágio</a></p>
+    <p><a href="https://www.ifbaiano.edu.br/unidades/guanambi/files/2013/07/normas-para-elaboração-de-relatorio.final_.pdf" target="_blank">Normas para elaboração de relatorio final</a></p>
+    <p><a href="https://www.ifbaiano.edu.br/unidades/guanambi/files/2013/07/PASSO-A-PASSO-PROCEDIMENTAL-DO-ESTÁGIO-DE-NÍVEL-MÉDIO.pdf" target="_blank">Passo a passo procedimental do Estágio de Nível Médio</a></p>
+    <p><a href="https://www.ifbaiano.edu.br/unidades/guanambi/files/2013/07/1REQUERIMENTO_-CADASTRO-DO-ESTAGIÁRIO.odt" target="_blank">1 &#8211; Requerimento de Cadastro de Estagiário</a></p>
+    <p><a href="https://www.ifbaiano.edu.br/unidades/guanambi/files/2016/10/2-DECLARAÇÃO-DO-ORIENTADOR.odt" target="_blank">2 &#8211; Declaração do Orientador</a></p>
+    <p><a href="https://www.ifbaiano.edu.br/unidades/guanambi/files/2016/10/3-PLANO-DE-ESTÁGIO.odt" target="_blank">3 &#8211; Plano de Estágio</a></p>
+    <p><a href="https://www.ifbaiano.edu.br/unidades/guanambi/files/2016/10/4-REQUERIMENTO_DE_VALIDAÇÃO-DE-ESTÁGIO.odt">4 &#8211; Requerimento de Validação do Estágio</a></p>
+
+
+    
+<h2> Escolha um feed </h2>
+
+{% if curso %}
+    {% for p in curso %}  
+    <h3>
+        <li>
+            {{p.nome}} <br>
+            <span> <a href="/post/feed/{{p.id}}/"> Ir </a> </span> <br>
+        </li>
+    </h3>
+    {% endfor %}
+    
+{% else %}
+    <p> Você não tem cursos cadastrados ainda.</p>
+{% endif %}
+   
+   
